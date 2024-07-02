@@ -1,0 +1,15 @@
+.footer {
+    background-color: rgba(252, 250, 250, 0.7);
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    padding: 20px 0; /* Adjust the padding to increase the size of the footer */
+  }
+  
+  .footer .text-center {
+    width: 90%;
+    margin: 0 auto;
+  }
+  

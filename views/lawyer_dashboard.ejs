@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+        
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+        <link type="text/css" rel="stylesheet" href="/css/dashboard_style.css">
+        <style>
+           body {
+              font-family: Arial, Helvetica, sans-serif;
+              background-image: url('/images/c.jpg');
+              background-size: cover;
+              /* Ensures the background image covers the entire screen */
+              background-position: center;
+              /* Centers the background image */
+              background-repeat: no-repeat;
+              background-attachment: fixed;
+              /* Keeps the background image fixed while scrolling */
+              margin: 0;
+              /* Remove default body margin */
+              padding: 0;
+              /* Remove default body padding */
+            }
+            .navigation-buttons .btn {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            .table-container {
+                padding: 20px 20px; /* Add space on the sides of the table */
+            }
+            .table-container .row {
+                margin-right: 0;
+                margin-left: 20;
+            }
+            .custom-table-wrapper {
+                background-color: rgba(255, 255, 255, 0.5); /* White with 50% opacity */
+               
+                padding: 20px; /* Optional: Add padding */
+            }
+            table.table-bordered {
+                border: 2px solid black;
+            }
+            .footer {
+      background-color: rgba(252, 250, 250, 0.7);
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      text-align: center;
+      padding: 20px 0; /* Adjust the padding to increase the size of the footer */
+    }
+    
+    .footer .text-center {
+      width: 90%;
+      margin: 0 auto;
+    
+    }
+        </style>
+    
+    </head>
+
+    <body class="home">
+        <h1><i class="fa fa-dashboard" style="font-size:48px;color:black"></i>
+            <b><%= f_name %>'s Dashboard</b></h1>
+            <br>
+            
+        <div class="container-fluid display-table">
+            <div class="row display-table-row">
+                <!-- Navigation Menu -->
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container">
+                      <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                          
+                            <a href="/lawyer/dashboard" class="btn btn-primary">
+                              <i class="fa fa-home" style="font-size:20px" aria-hidden="true"></i>
+                              <span class="hidden-xs hidden-sm">Dashboard</span>
+                            </a>   
+                            <a href="/lawyer/profile" class="btn btn-primary">
+                              <i class="fa fa-plus" style="font-size:20px" aria-hidden="true"></i>
+                              <span class="hidden-xs hidden-sm">Edit profile details</span>
+                            </a>
+                            <a href="/client/index" class="btn btn-primary">
+                              <i class="fa fa-bell" style="font-size:20px" aria-hidden="true"></i>
+                              <span class="hidden-xs hidden-sm">Chat</span>
+                            </a>
+                            <a href="/logout" class="btn btn-primary">
+                              <i class="fa fa-sign-out" style="font-size:20px" aria-hidden="true"></i>
+                              <span class="hidden-xs hidden-sm">Log Out</span>
+                            </a>
+                        </ul>
+                      </div>
+                    </div>
+                  </nav>
+                  
+                <!-- Active Cases Table -->
+                <div class="col-md-10 col-sm-8 display-table-cell v-align box">
+                    <div class="table-container custom-table-wrapper">
+                        <div class="active-cases">
+                            <caption>
+                                <div align="left" style="font-size: 200%;"><b>Active Cases:</b></div>
+                            </caption>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Case Type</th>
+                                        <th>Case Name</th>
+                                        <th>Description</th>
+                                        <th>Case No</th>
+                                        <th>Hearing Date</th>
+                                        <th>Details</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% cases.forEach((case1) => { 
+                                        if(case1.isResolved === "N") { %>
+                                            <tr>
+                                                <td><%= case1.case_type %></td>
+                                                <td><%= case1.case_name %></td>
+                                                <td><%= case1.case_descp %></td>
+                                                <td><%= case1.court_case_no %></td>
+                                                <td><%= case1.h_date %></td>
+                                                <td>
+                                                    <form action="/client/display_case_details/<%= case1._id %>" method="GET">
+                                                        <button type="submit" class="btn btn-primary">Further Details</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        <% }
+                                    }); %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Resolved Cases Table -->
+                <div class="col-md-10 col-sm-8 display-table-cell v-align box">
+                    <div class="table-container custom-table-wrapper">
+                        <div class="active-cases">
+                            <caption>
+                                <div align="left" style="font-size: 200%;"><b>Resolved Cases:</b></div>
+                            </caption>
+                            <table class="table table-bordered" style="padding-top: 10px; margin-top: 10px;">
+                                <thead>
+                                    <tr>
+                                        <th>Case Type</th>
+                                        <th>Case Name</th>
+                                        <th>Description</th>
+                                        <th>Case No</th>
+                                        <th>Hearing Date</th>
+                                        <th>Details</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% cases.forEach((case1) => { 
+                                        if(case1.isResolved === "Y") { %>
+                                            <tr>
+                                                <td><%= case1.case_type %></td>
+                                                <td><%= case1.case_name %></td>
+                                                <td><%= case1.case_descp %></td>
+                                                <td><%= case1.court_case_no %></td>
+                                                <td><%= case1.h_date %></td>
+                                                <td>
+                                                    <form action="/client/display_case_details/<%= case1._id %>" method="GET">
+                                                        <button type="submit" class="btn btn-primary">Further Details</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        <% }
+                                    }); %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="text-center p-3">
+              © 2024 Copyright:
+              <a class="text-body" href="https://github.com/ANI-IN"><u>ANI-IN</u></a>
+            </div>
+          </footer>
+    </body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link type="text/css" rel="stylesheet" href="/css/login_style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-image: url('/images/justice.jpeg');
+      background-size: cover;
+      /* Ensures the background image covers the entire screen */
+      background-position: center;
+      /* Centers the background image */
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      /* Keeps the background image fixed while scrolling */
+      margin: 0;
+      /* Remove default body margin */
+      padding: 0;
+      /* Remove default body padding */
+    }
+
+    .container {
+      width: 50%;
+      /* Utilize half of the container width */
+      margin: 0 auto;
+      /* Center the container horizontally */
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      /* Make the button width 100% */
+      border-radius: 20px;
+      /* Make the button rounded */
+    }
+
+    .footer {
+      background-color: rgba(252, 250, 250, 0.7);
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      text-align: center;
+      padding: 0px 0;
+      /* Adjust the padding to increase the size of the footer */
+    }
+
+    .footer .text-center {
+      width: 90%;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <center>
+    <h1 style="color: white;"><i class="fa fa-user-circle-o" style="font-size:36px"></i> Login</h1>
+  </center>
+  <%- include('./partials/messages.ejs') %>
+  <br>
+  <tr>
+    <td colspan="2" style="text-align: center;"><a href="/" class="button"><i class="fa fa-home"></i> Home</a></td>
+  </tr>
+
+    <form action="/login" method="POST">
+      <center>
+        <div class="container form-wrapper">
+          <table>
+            
+            <tr>
+              <td colspan="2"><b>Please select one of the following choices:</b></td>
+            </tr>
+            <tr>
+              <td style="text-align: left;"><input type="radio" name="personType" value="c" required> Client</td>
+              <td><input type="radio" name="personType" value="l" required> Lawyer</td>
+            </tr>
+            <tr>
+              <td style="text-align: left;"><label for="email"><b>E-Mail:</b></label></td>
+              <td><input class="pratik" type="email" placeholder="Enter Email" name="email" required></td>
+            </tr>
+            <tr>
+              <td style="text-align: left;"><label for="password"><b>Password:</b></label></td>
+              <td><input class="pratik" type="password" placeholder="Enter Password" name="password" required></td>
+            </tr>
+            <tr>
+              <td colspan="2" style="text-align: center;"><button type="submit">Login</button></td>
+            </tr>
+  
+          </table>
+        </div>
+      </center>
+    </form>
+
+    <footer class="footer">
+      <div class="text-center p-3">
+        © 2024 Copyright:
+        <a class="text-body" href="https://github.com/ANI-IN"><u>ANI-IN</u></a>
+      </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="/css/register_profile_style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <style>
+            body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url('/images/justice.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
+            table.container {
+                text-align: left;
+                background-color: rgba(255, 255, 255, 0.8); /* White with 0.08 opacity */
+                padding: 24px; /* Add padding to the table */
+
+            }
+            table.container td {
+                padding-right: 28px; /* Add right padding for each cell */
+                padding-bottom: 28px; /* Add bottom padding for each cell */
+            }
+
+            button[type="submit"] {
+                margin-top: 10px; /* Add margin to the top of the button */
+            }
+                    .container {
+        text-align: center;
+        padding: 0px;
+        }
+        .form-wrapper {
+        background-color: rgba(255, 255, 255, 0.7); /* White background with 70% opacity */
+        padding: 20px; /* Add padding for spacing */
+        }
+        .footer {
+  background-color: rgba(252, 250, 250, 0.7);
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  padding: 20px 0; /* Adjust the padding to increase the size of the footer */
+}
+
+.footer .text-center {
+  width: 90%;
+  margin: 0 auto;
+
+}
+
+
+        </style>
+    </head>
+
+    <body>
+        <center><h2><i class="fa fa-user-plus" style="font-size:32px;color: white;font-weight: bold;"> <%= fname %>'s Details</i></h2></center>
+        <tr>
+            <td colspan="2" style="text-align: center;"><a href="/client/add_case_pg2" class="button"><i class="fa fa-home"></i> Back</a></td>
+          </tr>
+
+        <form action="/client/add_case_pg2" method="GET">
+            <table class="container" style="text-align: left;">
+                <tr>
+                    <td style="padding-right: 10px; padding-bottom: 10px;"><b>Full Name:</b></td>
+                    <td style="padding-bottom: 10px;"><%= fname %> <%= mname %> <%= lname %></td>
+                </tr>
+                <tr>
+                    <td style="padding-right: 10px; padding-bottom: 10px;"><b>Company Name:</b></td>
+                    <td style="padding-bottom: 10px;"><%= company_name %></td>
+                </tr>
+                <tr>
+                    <td style="padding-right: 10px; padding-bottom: 10px;"><b>Preferred Case Type(s):</b></td>
+                    <td style="padding-bottom: 10px;"><%= pref_case_types %></td>
+                </tr>
+                <tr>
+                    <td style="padding-right: 10px; padding-bottom: 10px;"><b>No. of years of experience:</b></td>
+                    <td style="padding-bottom: 10px;"><%= exp_yrs %></td>
+                </tr>
+                <tr>
+                    <td style="padding-right: 10px; padding-bottom: 10px;"><b>Experience:</b></td>
+                    <td style="padding-bottom: 10px;"><%= experience %></td>
+                </tr>
+                <tr>
+                    <td style="padding-right: 10px; padding-bottom: 10px;"><b>Fees:</b></td>
+                    <td style="padding-bottom: 10px;">Rs. <%= fees %></td>
+                </tr>
+                <tr>
+                    <td style="padding-right: 10px; padding-bottom: 10px;"><b>Fee structure:</b></td>
+                    <td style="padding-bottom: 10px;"><%= fee_descp %></td>
+                </tr>
+                <tr>
+                    <td style="padding-right: 10px; padding-bottom: 10px;"><b>Date Of Birth:</b></td>
+                    <td style="padding-bottom: 10px;"><%= dob %></td>
+                </tr>
+                <tr>
+                    <td style="padding-right: 10px; padding-bottom: 10px;"><b>Age:</b></td>
+                    <td style="padding-bottom: 10px;"><%= age %> yrs</td>
+                </tr>
+                <tr>
+                    <td style="padding-right: 10px; padding-bottom: 10px;"><b>E-mail:</b></td>
+                    <td style="padding-bottom: 10px;"><%= email %></td>
+                </tr>
+                <tr>
+                    <td style="padding-right: 10px; padding-bottom: 10px;"><b>Phone Number:</b></td>
+                    <td style="padding-bottom: 10px;">(+91)(0)<%= ph_no %></td>
+                </tr>
+                <!-- <tr>
+                    <td colspan="2" style="padding-bottom: 10px;"><button type="submit" class="button">Back</button></td>
+                </tr> -->
+            </table>
+        </form>
+
+        <footer class="footer">
+            <div class="text-center p-3">
+              © 2024 Copyright:
+              <a class="text-body" href="https://github.com/ANI-IN"><u>ANI-IN</u></a>
+            </div>
+          </footer>
+    </body>
+</html>

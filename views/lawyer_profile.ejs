@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/css/register_profile_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .form-wrapper {
+            background-color: rgba(255, 255, 255, 0.7); /* White background with 70% opacity */
+            padding: 20px; /* Add padding for spacing */
+        }
+
+        table {
+            width: 80%; /* Reduced width */
+            margin-bottom: 20px; /* Added margin to bottom */
+        }
+
+        td {
+            text-align: left;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+
+</head>
+
+<body>
+    <center><h2 style="color: white;"><i class="fa fa-user-plus" style="font-size:32px"> <%= f_name %>'s Details</i></h2></center>
+    <tr>
+        <td colspan="2" style="text-align: center;">
+          <div class="home-button">
+            <a href="/" class="button"><i class="fa fa-home"></i> Home</a>
+        </td>
+      </tr>
+    <%- include('./partials/messages.ejs') %>
+
+    
+    <form action="/lawyer/profile" method="POST">
+        <div class="form-wrapper"> <!-- Moved form wrapper inside the form -->
+            <table>
+                <tr>
+                    <td><label for="bar_id"><b>BAR Council ID <span style="color: red;">*</span></b></label></td>
+                    <td><input type="text" placeholder="Enter your BAR Council ID" name="bar_id" required></td>
+                </tr>
+                <tr>
+                    <td><label for="company_name"><b>Company Name <span style="color: red;">*</span></b></label></td>
+                    <td><input type="text" placeholder="Enter Company name ('self' if self-employed)" name="company_name" required></td>
+                </tr>
+                <tr>
+                    <td><label for="pref_case_types"><b>Preferred Case Types (Comma Separated) <span style="color: red;">*</span></b></label></td>
+                    <td><input type="text" placeholder="Enter COMMA SEPARATED preferred case types" name="pref_case_types" required></td>
+                </tr>
+                <tr>
+                    <td><label for="exp_yrs"><b>No. of years of experience <span style="color: red;">*</span></b></label></td>
+                    <td><input type="number" placeholder="Enter no. of years of experience as a lawyer" name="exp_yrs" required></td>
+                </tr>
+                <tr>
+                    <td><label for="exp"><b>Experience <span style="color: red;">*</span></b></label></td>
+                    <td><textarea placeholder="Enter your experience as a lawyer" name="exp" required rows="6" cols="58"></textarea></td>
+                </tr>
+                <tr>
+                    <td><label for="fees"><b>Fees <span style="color: red;">*</span> Rs.</b></label></td>
+                    <td><input type="number" placeholder="Enter your fees" name="fees" required></td>
+                </tr>
+                <tr>
+                    <td><label for="fee_descp"><b>Fee structure <span style="color: red;">*</span></b></label></td>
+                    <td><input type="text" placeholder="Enter your fee structure" name="fee_descp" required></td>
+                </tr>
+                <tr>
+                    <td><label for="dob"><b>Date Of Birth</b></label></td>
+                    <td><input type="date" placeholder="Enter your date of birth" name="dob"></td>
+                </tr>
+                <tr>
+                    <td><label for="age"><b>Age (in Years)</b></label></td>
+                    <td><input type="number" placeholder="Enter your age" name="age"></td>
+                </tr>
+                <tr>
+                    <td><label for="ph_no"><b>Phone Number <span style="color: red;">*</span> (+91)(0)</b></label></td>
+                    <td><input type="number" placeholder="Enter your 10-digit phone number" name="ph_no" required></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button type="submit" class="button">Register Details</button></td>
+                </tr>
+            </table>
+        </div>
+    </form>
+
+    <footer class="footer">
+        <div class="text-center p-3">
+            © 2024 Copyright:
+            <a class="text-body" href="https://github.com/ANI-IN"><u>ANI-IN</u></a>
+        </div>
+    </footer>
+</body>
+</html>

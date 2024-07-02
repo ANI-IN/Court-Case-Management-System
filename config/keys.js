@@ -1,0 +1,1 @@
+MongoURI='mongodb+srv://animeshkcm:Ytp7FwiNm13UGr6h@cluster1.yngvsrv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1' 

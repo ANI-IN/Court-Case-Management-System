@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/css/register_profile_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+
+  <body>
+    <center><h2 style="color: white;"><i class="fa fa-user-plus" style="font-size:32px"></i> Registration</h2></center>
+    
+    <%- include('./partials/messages.ejs') %>
+    <tr>
+      <td colspan="2" style="text-align: center;"><a href="/" class="button"><i class="fa fa-home"></i> Home</a>  </td>
+    </tr>
+    <form action="/register" method="POST">
+      <div class="container">
+        <div class="form-wrapper">
+        <form action="/register" method="POST">
+          <table>
+            <tr>
+              <td colspan="2"><b>Please select one of the following choices:</b></td>
+            </tr>
+            <tr>
+              <td style="text-align: left;"><input type="radio" name="personType" value="c" required> Client</td>
+              <td><input type="radio" name="personType" value="l" required> Lawyer</td>
+            </tr>
+            <tr>
+              <td style="text-align: left;"><label for="fname"><b>First Name</b></label></td>
+              <td><input type="text" placeholder="Enter First Name" name="fname" required></td>
+            </tr>
+            <tr>
+              <td style="text-align: left;"><label for="mname"><b>Middle Name</b></label></td>
+              <td><input type="text" placeholder="Enter Middle Name" name="mname"></td>
+            </tr>
+            <tr>
+              <td style="text-align: left;"><label for="lname"><b>Last Name</b></label></td>
+              <td><input type="text" placeholder="Enter Last Name" name="lname" required></td>
+            </tr>
+            <tr>
+              <td style="text-align: left;"><label for="email"><b>E-mail</b></label></td>
+              <td><input type="email" placeholder="Enter Email" name="email" required></td>
+            </tr>
+            <tr>
+              <td style="text-align: left;"><label for="password"><b>Password</b></label></td>
+              <td><input type="password" placeholder="Enter Password" name="password" required></td>
+            </tr>
+            <tr>
+              <td style="text-align: left;"><label for="password2"><b>Repeat Password</b></label></td>
+              <td><input type="password" placeholder="Repeat Password" name="password2" required></td>
+            </tr>
+            <tr>
+              <td colspan="2" class="center-button"><button type="submit" class="button">Register</button></td>
+            </tr>
+            
+          </table>
+        </div>
+      </div>
+    </form>
+    <%- include('./partials/footer.ejs') %>
+   
+  </ body>
+</html>
